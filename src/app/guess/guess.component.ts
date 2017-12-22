@@ -9,15 +9,24 @@ export class GuessComponent implements OnInit {
 
   constructor() { }
 
-  @Input() answer: string;
+  //scoring
+  answer: string;
+  score: number = 0;
+
+  @Input() questionInfo;
 
   @Output() buttonClicked = new EventEmitter();
 
   ngOnInit() {
   }
 
-  youClickedMe(){
-    this.buttonClicked.emit(this.answer);
+  checkAnswer(){
+
+    if(this.questionInfo.answer.toLowerCase() == this.answer.toLowerCase()){
+      this.score += this.questionInfo.value;
+     }
+     this.answer = "";
+     this.buttonClicked.emit();
   }
 
 }

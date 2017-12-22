@@ -1,19 +1,14 @@
 <!--The whole content below can be removed with the new code.-->
 The question is: {{questionInfo?.question}}
 <br>
-The value is: {{questionInfo?.value}}
+The point value is: {{questionInfo?.value}}
 <br>
 The category is: {{questionInfo?.category.title}}
 <br>
-Score: {{score}}
+Score: {{guess.score}}
 <br>
-<br>
-<br>
-<br>
-The answer is: {{questionInfo?.answer}}
-
+<!–– The answer is: {{questionInfo?.answer}} -->
 <br>
 
 
-
-<app-guess (buttonClicked)="checkAnswer($event)"></app-guess>
+<app-guess #guess (buttonClicked)="getDataFromService()" [questionInfo]="questionInfo"></app-guess>
